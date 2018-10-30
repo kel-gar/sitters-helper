@@ -5,7 +5,6 @@ import Landing from './components/Landing.js';
 import MyHome from './components/MyHome';
 import SignIn from './components/SignIn';
 import NoteManager from './components/NoteManager';
-// import User from './components/User';
 import NavBar from './components/NavBar';
 
 class App extends Component {

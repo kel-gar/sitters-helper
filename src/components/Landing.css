@@ -5,8 +5,8 @@
   
   .hero-title {
     font-family: sans-serif;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
   
   .point-title {
@@ -39,6 +39,10 @@
 
   .fas fa-home {
     size: 7x;
+  }
+
+  footer {
+    text-align: center;
   }
   
 

@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import SitterNotes from './SitterNotes';
 
 class NoteManager extends Component { 
   render() {
    return ( 
-     <section className='notemanager'>
+
+     <div className='notemanager'>
+
+      <SitterNotes />
+
        My Note Manager Page will go here
        <i class="fas fa-edit fa-3x"></i>
        EDIT NOTE
@@ -13,7 +18,9 @@ class NoteManager extends Component {
        DELETE NOTE
        <i class="fas fa-undo fa-3x"></i>
        UNDO LAST 
-      </section>  
+      </div>
+      
+      
       
      
 

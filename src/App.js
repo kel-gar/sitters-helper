@@ -6,6 +6,8 @@ import MyHome from './components/MyHome';
 import SignIn from './components/SignIn';
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
+// import SitterNotes from './components/SitterNotes';
+
 
 class App extends Component {
 

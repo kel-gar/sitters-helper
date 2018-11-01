@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import User from './User';
 
 var config = {
-  apiKey: "AIzaSyA0vSJ8afb7QswWZEPmixCMxojSFgRVKaY",
-  authDomain: "sitters-helper.firebaseapp.com",
-  databaseURL: "https://sitters-helper.firebaseio.com",
-  projectId: "sitters-helper",
-  storageBucket: "sitters-helper.appspot.com",
-  messagingSenderId: "703268562821"
+  apiKey: "AIzaSyDmBKuRdX5yOaynmGty3WgU9m8QYSteM74",
+  authDomain: "sitters-helper-b772a.firebaseapp.com",
+  databaseURL: "https://sitters-helper-b772a.firebaseio.com",
+  projectId: "sitters-helper-b772a",
+  storageBucket: "",
+  messagingSenderId: "239965885555"
 };
 firebase.initializeApp(config);
 

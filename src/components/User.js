@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
 
 class User extends Component {
-  constructor() {
-    super();
-    this.state = {
-     email: '',
-     fullname: ''
-    };
-  }  
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //    email: '',
+  //    fullname: ''
+  //   };
+  // }  
 
   signInWithPopup() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();

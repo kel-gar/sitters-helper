@@ -1,17 +1,5 @@
-import * as firebase from 'firebase';
 import React, { Component } from 'react';
 import User from './User';
-
-var config = {
-  apiKey: "AIzaSyDmBKuRdX5yOaynmGty3WgU9m8QYSteM74",
-  authDomain: "sitters-helper-b772a.firebaseapp.com",
-  databaseURL: "https://sitters-helper-b772a.firebaseio.com",
-  projectId: "sitters-helper-b772a",
-  storageBucket: "",
-  messagingSenderId: "239965885555"
-};
-firebase.initializeApp(config);
-
 
 class SignIn extends Component {
   constructor(props) {
@@ -31,7 +19,7 @@ setUser(user) {
  
          <main>
          <User
-            firebase={firebase}
+            firebase={this.props.firebase}
             setUser={(user) => this.setUser(user)}
             activeUser={this.state.activeUser}
           />

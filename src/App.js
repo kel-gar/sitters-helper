@@ -6,8 +6,18 @@ import MyHome from './components/MyHome';
 import SignIn from './components/SignIn';
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
-// import SitterNotes from './components/SitterNotes';
+import SitterNotes from './components/SitterNotes';
+import * as firebase from 'firebase';
 
+var config = {
+  apiKey: "AIzaSyDmBKuRdX5yOaynmGty3WgU9m8QYSteM74",
+  authDomain: "sitters-helper-b772a.firebaseapp.com",
+  databaseURL: "https://sitters-helper-b772a.firebaseio.com",
+  projectId: "sitters-helper-b772a",
+  storageBucket: "sitters-helper-b772a.appspot.com",
+  messagingSenderId: "239965885555"
+};
+firebase.initializeApp(config);
 
 class App extends Component {
 
@@ -19,8 +29,24 @@ class App extends Component {
          <main>
           <Route exact path="/" component={Landing} />
           <Route path="/MyHome" component={MyHome} />
-          <Route path="/SignIn" component={SignIn} />
+          {/* <Route path="/SignIn" component={SignIn} /> */}
+          <Route
+            path="/SignIn"
+            render={(routeProps) => (
+              <SignIn {...routeProps} firebase={firebase}/>
+            )}
+          />          
+          
           <Route path="/NoteManager" component={NoteManager} />
+          {/* <Route path="/SitterNotes" component={SitterNotes} /> */}
+          <Route
+            path="/SitterNotes"
+            render={(routeProps) => (
+              <SitterNotes {...routeProps} firebase={firebase}/>
+            )}
+          />             
+          
+
         </main>
         </body>
       </div>

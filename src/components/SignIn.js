@@ -16,7 +16,6 @@ setUser(user) {
   render() {
     return (
       <div className="SignIn">
- 
          <main>
          <User
             firebase={this.props.firebase}
@@ -24,8 +23,6 @@ setUser(user) {
             activeUser={this.state.activeUser}
           />
         </main>
-        
-   
       </div>
     );
   }

@@ -21,11 +21,6 @@ class NoteManager extends Component {
       </div>
       
       
-      
-     
-
-     
-
     );
   }
 }

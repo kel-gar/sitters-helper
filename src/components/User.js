@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 
 class User extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //    email: '',
-  //    fullname: ''
-  //   };
-  // }  
 
   signInWithPopup() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
@@ -25,7 +18,6 @@ class User extends Component {
       });
     }
 
-  
     render() {
       return (
         <div className="User">

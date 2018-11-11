@@ -1,0 +1,13 @@
+.sitternotes     {
+    /* font-family: ; */
+    text-align: center;
+  }
+
+#sitternotes-list {
+    /* font-family: ; */
+    text-align: center;
+  } 
+
+  table, th, td {
+    border: 1px solid black;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { Table } from 'reactstrap';
+import './SitterNotes.css';
+import { Table } from 'reactstrap';
 
 class SitterNotes extends Component {
   constructor(props) {
@@ -69,21 +70,49 @@ class SitterNotes extends Component {
     
     render() {
       return (
-        <div id="sitternotelist">
-        
+        <section className="sitternotes">
+          <div id="sitternotes-list">
+
           <h3>Sitter Notes:</h3>
-        <ul>
+        <Table>
+        <thead>
+          <tr>
+            <th>Contacts</th>
+            <th>General</th>
+            <th>Medical</th>
+            <th>Other</th>
+          </tr>
+        </thead>
+
+        <tbody>
           {this.state.sitternotes
             .map( (sitternote, key) => (
-            <ul key={sitternote.key}>
-              {sitternote.contact}-
-              {sitternote.general}-
-              {sitternote.medical}-
-              {sitternote.other}
-            </ul>
-          ))}
-        </ul>  
-        
+            <div key={sitternote.key}>
+          <tr>
+            <th scope="row">1</th>
+            <td>{sitternote.contact}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>{sitternote.general}</td>
+          </tr>
+          <tr> 
+            <th scope="row">3</th>
+            <td>{sitternote.medical}</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>{sitternote.other}</td>
+          </tr>
+        </div>
+        ))}
+        </tbody>
+      </Table> 
+
+      </div>      
+      
+      <div id="sitternotes-submit">
+        <h3>New Sitter Note:</h3>
           <form onSubmit={ this.handleSubmit }>
             <label>
               Contact:
@@ -109,8 +138,9 @@ class SitterNotes extends Component {
             </label>
 
               <input type="submit" value="Submit" />
-          </form>
+          </form>     
         </div>
+      </section>  
 
      );
    }

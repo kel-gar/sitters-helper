@@ -24,30 +24,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <NavBar />
+        <NavBar />
         <body>
-         <main>
-          <Route exact path="/" component={Landing} />
-          <Route path="/MyHome" component={MyHome} />
-          {/* <Route path="/SignIn" component={SignIn} /> */}
-          <Route
-            path="/SignIn"
-            render={(routeProps) => (
-              <SignIn {...routeProps} firebase={firebase}/>
-            )}
-          />          
-          
-          <Route path="/NoteManager" component={NoteManager} />
-          {/* <Route path="/SitterNotes" component={SitterNotes} /> */}
-          <Route
-            path="/SitterNotes"
-            render={(routeProps) => (
-              <SitterNotes {...routeProps} firebase={firebase}/>
-            )}
-          />             
-          
-
-        </main>
+          <main>
+            <Route exact path="/" component={Landing} />
+            <Route path="/MyHome" component={MyHome} />
+            <Route
+              path="/SignIn"
+              render={(routeProps) => (
+                <SignIn {...routeProps} firebase={firebase}/>
+              )}
+            />          
+            <Route 
+              path="/NoteManager" 
+              render={(routeProps) => (
+                <NoteManager {...routeProps} firebase={firebase}/>
+              )}
+            />
+            <Route
+              path="/SitterNotes"
+              render={(routeProps) => (
+                <SitterNotes {...routeProps} firebase={firebase}/>
+              )}
+            />             
+          </main>
         </body>
       </div>
     );

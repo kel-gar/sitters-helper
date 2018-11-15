@@ -8,19 +8,21 @@ class NoteManager extends Component {
     super(props);
     this.state = {
       value: '',
-      // contact: '',
-      // general: '',
-      // medical: '',
-      // other: '',
-      // userId: ''
+      contact: '',
+      general: '',
+      medical: '',
+      other: '',
+      userId: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
+
     this.handleChangeContact = this.handleChangeContact.bind(this);
     this.handleChangeGeneral = this.handleChangeGeneral.bind(this);
     this.handleChangeMedical = this.handleChangeMedical.bind(this);
     this.handleChangeOther = this.handleChangeOther.bind(this);
     this.handleChangeUserId = this.handleChangeUserId.bind(this);
+    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -29,8 +31,8 @@ class NoteManager extends Component {
       contact: this.state.contact,
       general: this.state.general,
       medical: this.state.medical,
-      other: this.state.other
-      // userId: this.props.activeUser
+      other: this.state.other,
+      userId: this.props.activeUser
     });
   }
 
@@ -70,10 +72,8 @@ class NoteManager extends Component {
    return ( 
 
      <div className='notemanager'>
-
       <div id="sitternotes-submit">
         <h3>Create Sitter Note:</h3>
-        {/* <p>Current User: {this.props.activeUser} </p> */}
           <form onSubmit={ this.handleSubmit }>
             <label>
               Contact:
@@ -110,17 +110,6 @@ class NoteManager extends Component {
           </button>
         </Link>
       </section>        
-
-       {/* My Note Manager Page will go here
-       <i class="fas fa-edit fa-3x"></i>
-       EDIT NOTE
-       <i class="fas fa-plus fa-3x"></i>
-       ADD NOTE
-       <i class="fas fa-minus fa-3x"></i>
-       DELETE NOTE
-       <i class="fas fa-undo fa-3x"></i>
-       UNDO LAST  */}
-      
       </div>
       
       

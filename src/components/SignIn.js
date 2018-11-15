@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import User from './User';
 import './SignIn.css';
 // import NoteManager from './NoteManager';
+// import { Route, Link } from 'react-router-dom';
+// import * as firebase from 'firebase';
 
 class SignIn extends Component {
   constructor(props) {
@@ -24,11 +26,12 @@ setUser(user) {
             setUser={(user) => this.setUser(user)}
             activeUser={this.state.activeUser}
           />
-          {/* <NoteManager
-            firebase={this.props.firebase}
-            setUser={(user) => this.setUser(user)}
-            activeUser={this.state.activeUser}
-          /> */}
+            {/* <Route 
+              path="/NoteManager" 
+              render={(routeProps) => (
+                <NoteManager {...routeProps} firebase={firebase}/>
+              )}
+            />           */}
         </main>
       </div>
     );

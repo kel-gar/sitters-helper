@@ -12,6 +12,7 @@ class SitterNotes extends Component {
       general: '',
       medical: '',
       other: ''
+      // userId: ''
     };
 
   this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
@@ -37,6 +38,7 @@ class SitterNotes extends Component {
               <th>Contact</th>
               <th>Medical</th>
               <th>Other</th>
+              {/* <th>User</th> */}
             </tr>
           </thead>
 

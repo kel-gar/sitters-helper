@@ -26,12 +26,6 @@ setUser(user) {
             setUser={(user) => this.setUser(user)}
             activeUser={this.state.activeUser}
           />
-            {/* <Route 
-              path="/NoteManager" 
-              render={(routeProps) => (
-                <NoteManager {...routeProps} firebase={firebase}/>
-              )}
-            />           */}
         </main>
       </div>
     );

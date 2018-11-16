@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class User extends Component {
 
-
   signInWithPopup() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
     this.props.firebase.auth().signInWithPopup( provider );

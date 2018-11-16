@@ -12,7 +12,6 @@ class NoteManager extends Component {
       general: '',
       medical: '',
       other: '',
-      userId: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
@@ -21,7 +20,7 @@ class NoteManager extends Component {
     this.handleChangeGeneral = this.handleChangeGeneral.bind(this);
     this.handleChangeMedical = this.handleChangeMedical.bind(this);
     this.handleChangeOther = this.handleChangeOther.bind(this);
-    this.handleChangeUserId = this.handleChangeUserId.bind(this);
+    // this.handleChangeActiveUser = this.handleChangeActiveUser.bind(this);
     
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -32,7 +31,7 @@ class NoteManager extends Component {
       general: this.state.general,
       medical: this.state.medical,
       other: this.state.other,
-      userId: this.props.activeUser
+      // userId: this.props.activeUser
     });
   }
 
@@ -52,9 +51,9 @@ class NoteManager extends Component {
     this.setState({ other: e.target.value})
   }
 
-  handleChangeUserId(e) {
-    this.setState({ userId: this.props.activeUser })
-  }
+  // handleChangeActiveUser(e) {
+  //   this.setState({ activeUser: this.props.activeUser })
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -66,7 +65,6 @@ class NoteManager extends Component {
       other: ''
     });
   }
-
 
   render() {
    return ( 

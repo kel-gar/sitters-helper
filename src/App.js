@@ -20,6 +20,17 @@ var config = {
 firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      activeUser: null
+    };  
+}
+
+setUser(user) {
+  console.log(user);
+  this.setState( { activeUser: user.displayName } )
+}
 
   render() {
     return (
@@ -32,21 +43,22 @@ class App extends Component {
             <Route
               path="/SignIn"
               render={(routeProps) => (
-                <SignIn {...routeProps} firebase={firebase}/>
+                <SignIn {...routeProps} firebase={firebase} setUser= {(user) => this.setUser(user)} />
               )}
             />          
             <Route 
               path="/NoteManager" 
               render={(routeProps) => (
-                <NoteManager {...routeProps} firebase={firebase}/>
+                // WORK ON THIS activeUser part of line 53
+                <NoteManager {...routeProps} firebase={firebase} activeUser={this.props.activeUser} />
               )}
             />
             <Route
-              path="/SitterNotes"
+               path="/SitterNotes"
               render={(routeProps) => (
                 <SitterNotes {...routeProps} firebase={firebase}/>
               )}
-            />             
+            />            
           </main>
         </body>
       </div>

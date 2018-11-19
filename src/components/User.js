@@ -9,7 +9,7 @@ class User extends Component {
 
   signOut() {
       this.props.firebase.auth().signOut();
-      this.props.setUser( {displayName: "Guest"} );
+      this.props.setUser( {displayName: "Please Log In"} );
     }
 
   componentDidMount() {

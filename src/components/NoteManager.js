@@ -11,7 +11,7 @@ class NoteManager extends Component {
       contact: '',
       general: '',
       medical: '',
-      other: '',
+      other: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
@@ -31,7 +31,7 @@ class NoteManager extends Component {
       general: this.state.general,
       medical: this.state.medical,
       other: this.state.other,
-      // userId: this.props.activeUser
+      user_Id: this.props.activeUser
     });
   }
 
@@ -63,6 +63,7 @@ class NoteManager extends Component {
       general: '',
       medical: '',
       other: ''
+      // user_Id: this.props.activeUser
     });
   }
 

@@ -12,7 +12,6 @@ class SitterNotes extends Component {
       general: '',
       medical: '',
       other: ''
-      // userId: ''
     };
 
   this.sitternotesRef = this.props.firebase.database().ref('sitternotes');

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './NoteManager.css';
 
 
@@ -7,10 +7,12 @@ class NoteManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // activeUser: props.activeUser
       value: '',
       contact: '',
       general: '',
       medical: '',
+      // activeUser: '',
       other: ''
     };
 
@@ -31,9 +33,12 @@ class NoteManager extends Component {
       general: this.state.general,
       medical: this.state.medical,
       other: this.state.other,
-      user_Id: this.props.activeUser
+      // user_id: this.props.activeUser
     });
+
+    console.dir(this.props.activeUser);
   }
+  
 
   handleChangeContact(e) {
     this.setState({ contact: e.target.value})
@@ -62,8 +67,8 @@ class NoteManager extends Component {
       contact: '',
       general: '',
       medical: '',
-      other: ''
-      // user_Id: this.props.activeUser
+      other: '',
+      // user_id: ''
     });
   }
 
@@ -72,7 +77,7 @@ class NoteManager extends Component {
 
      <div className='notemanager'>
       <div id="sitternotes-submit">
-        <h3>Create Sitter Note:</h3>
+        <h3>Create Sitter Note: {this.props.activeUser}</h3>
           <form onSubmit={ this.handleSubmit }>
             <label>
               Contact:

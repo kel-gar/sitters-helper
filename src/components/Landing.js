@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Landing.css';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle, CardBody } from 'reactstrap';
+import { Card,  CardImg, CardTitle, CardText, CardDeck, CardBody
+  // , Button, CardSubtitle
+} from 'reactstrap';
 
 
 

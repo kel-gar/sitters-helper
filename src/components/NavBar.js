@@ -7,10 +7,11 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  // UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem 
+} from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -26,6 +27,14 @@ export default class Example extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+  // handleAuthentication() {
+  //   if (this.props.activeUser) {
+  //     return <NavLink href="/SignOut/">Log In</NavLink>
+  //   } else {
+  //     return <NavLink href="/SignIn/">Login</NavLink>
+  //   }
+  // }
+
   render() {
     return (
       <div>
@@ -35,7 +44,7 @@ export default class Example extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/SignIn/">Sign In</NavLink>
+              <NavLink href="/SignIn/">Sign In</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/MyHome/">My Home</NavLink>

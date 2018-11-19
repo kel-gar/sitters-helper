@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SitterNotes from './SitterNotes';
 import * as firebase from 'firebase';
 import './MyHome.css';
@@ -10,7 +10,7 @@ class MyHome extends Component {
   render() {
     return (
 
-    <section className='myhome'>
+    <div className='myhome'>
 
       <section id='table'>
        <SitterNotes 
@@ -21,12 +21,12 @@ class MyHome extends Component {
       <section id='add-note'>
         <Link to="/NoteManager">
           <button type="button">
-            <i class="fas fa-plus fa-1x">ADD NOTE</i>
+            <i className="fas fa-plus fa-1x">ADD NOTE</i>
           </button>
         </Link>
       </section>
 
-    </section>
+    </div>
 
     );
   }

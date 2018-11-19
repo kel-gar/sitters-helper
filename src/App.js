@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing.js';
 import MyHome from './components/MyHome';
@@ -22,45 +22,52 @@ firebase.initializeApp(config);
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       activeUser: null
-    };  
-}
+    };
+  }
 
-setUser(user) {
-  console.log(user);
-  this.setState( { activeUser: user.displayName } )
-}
+  setUser(user) {
+    console.log(`activeUser: ${JSON.stringify(user)}`);
+    // this.setState( { activeUser: user.displayName } )
+    this.setState({ activeUser: user })
+  }
 
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <body>
+        <NavBar activeUser={this.state.activeUser} />
+        <div>
           <main>
             <Route exact path="/" component={Landing} />
             <Route path="/MyHome" component={MyHome} />
             <Route
               path="/SignIn"
               render={(routeProps) => (
-                <SignIn {...routeProps} firebase={firebase} setUser= {(user) => this.setUser(user)} />
-              )}
-            />          
-            <Route 
-              path="/NoteManager" 
-              render={(routeProps) => (
-                // WORK ON THIS activeUser part of line 53
-                <NoteManager {...routeProps} firebase={firebase} activeUser={this.props.activeUser} />
+                <SignIn {...routeProps}
+                  firebase={firebase}
+                  setUser={(user) => this.setUser(user)}
+                  activeUser={this.state.activeUser} />
               )}
             />
             <Route
-               path="/SitterNotes"
+              path="/NoteManager"
               render={(routeProps) => (
-                <SitterNotes {...routeProps} firebase={firebase}/>
+                <NoteManager
+                  firebase={firebase}
+                  activeUser={this.state.activeUser} />
               )}
-            />            
+            />
+            <Route
+              path="/SitterNotes"
+              render={(routeProps) => (
+                <SitterNotes {...routeProps}
+                  firebase={firebase} 
+                  activeUser={this.state.activeUser}/>
+              )}
+            />
           </main>
-        </body>
+        </div>
       </div>
     );
   }

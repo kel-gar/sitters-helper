@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
 import './Landing.css';
-// import SignIn from './SignIn';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle, CardBody } from 'reactstrap';
+import { Card,  CardImg, CardTitle, CardText, CardDeck, CardBody
+  // , Button, CardSubtitle
+} from 'reactstrap';
 
 
 

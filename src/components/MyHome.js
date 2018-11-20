@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SitterNotes from './SitterNotes';
 import * as firebase from 'firebase';
 import './MyHome.css';
+import { Button } from 'reactstrap';
 
 
 class MyHome extends Component { 
@@ -20,9 +21,10 @@ class MyHome extends Component {
     
       <section id='add-note'>
         <Link to="/NoteManager">
-          <button type="button">
+          {/* <button type="button">
             <i className="fas fa-plus fa-1x">ADD NOTE</i>
-          </button>
+          </button> */}
+          <Button color="secondary" size="lg" input type="submit"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button>
         </Link>
       </section>
 

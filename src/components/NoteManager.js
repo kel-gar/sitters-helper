@@ -1,59 +1,62 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './NoteManager.css';
+import { Badge } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
-class NoteManager extends Component { 
+
+class NoteManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // activeUser: props.activeUser
       value: '',
       contact: '',
-      general: '',
       medical: '',
+      houseInfo: '',
       // activeUser: '',
-      other: ''
+      activities: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
 
     this.handleChangeContact = this.handleChangeContact.bind(this);
-    this.handleChangeGeneral = this.handleChangeGeneral.bind(this);
     this.handleChangeMedical = this.handleChangeMedical.bind(this);
-    this.handleChangeOther = this.handleChangeOther.bind(this);
+    this.handleChangeActivities = this.handleChangeActivities.bind(this);
+    this.handleChangeHouseInfo = this.handleChangeHouseInfo.bind(this);
     // this.handleChangeActiveUser = this.handleChangeActiveUser.bind(this);
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  createSitterNote (sitternote) {
-    this.sitternotesRef.push({     
+  createSitterNote(sitternote) {
+    this.sitternotesRef.push({
       contact: this.state.contact,
-      general: this.state.general,
       medical: this.state.medical,
-      other: this.state.other,
+      houseInfo: this.state.houseInfo,
+      activities: this.state.activities,
       // user_id: this.props.activeUser
     });
 
-    console.dir(this.props.activeUser);
+    // console.dir(this.props.activeUser);
   }
-  
+
 
   handleChangeContact(e) {
-    this.setState({ contact: e.target.value})
-  }
-
-  handleChangeGeneral(e) {
-    this.setState({ general: e.target.value})
+    this.setState({ contact: e.target.value })
   }
 
   handleChangeMedical(e) {
-    this.setState({ medical: e.target.value})
+    this.setState({ medical: e.target.value })
   }
 
-  handleChangeOther(e) {
-    this.setState({ other: e.target.value})
+  handleChangeHouseInfo(e) {
+    this.setState({ houseInfo: e.target.value })
+  }
+
+  handleChangeActivities(e) {
+    this.setState({ activities: e.target.value })
   }
 
   // handleChangeActiveUser(e) {
@@ -65,58 +68,56 @@ class NoteManager extends Component {
     this.createSitterNote(this.state.value);
     this.setState({
       contact: '',
-      general: '',
       medical: '',
-      other: '',
+      houseInfo: '',
+      activities: '',
       // user_id: ''
     });
   }
 
   render() {
-   return ( 
+    return (
 
-     <div className='notemanager'>
-      <div id="sitternotes-submit">
-        <h3>Create Sitter Note: {this.props.activeUser}</h3>
-          <form onSubmit={ this.handleSubmit }>
+      <div className='notemanager'>
+        <div id="sitternotes-submit">
+          <h2><Badge color="light">Create Sitter Note:</Badge></h2>
+          <form onSubmit={this.handleSubmit}>
             <label>
               Contact:
-              <textarea type="text" value={ this.state.contact } onChange={ this.handleChangeContact } />
+              <textarea type="text" value={this.state.contact} onChange={this.handleChangeContact} />
             </label>
           </form>
-          <form onSubmit={ this.handleSubmit }>
-            <label>
-              General:
-              <textarea type="text" value={ this.state.general } onChange={ this.handleChangeGeneral } />
-            </label>
-          </form>
-          <form onSubmit={ this.handleSubmit }>
+          <form onSubmit={this.handleSubmit}>
             <label>
               Medical:
-              <textarea type="text" value={ this.state.medical } onChange={ this.handleChangeMedical } />
+              <textarea type="text" value={this.state.medical} onChange={this.handleChangeMedical} />
             </label>
           </form>
-          <form onSubmit={ this.handleSubmit }>
+          <form onSubmit={this.handleSubmit}>
             <label>
-              Other:
-              <textarea type="text" value={ this.state.other } onChange={ this.handleChangeOther } />
+              House Info:
+              <textarea type="text" value={this.state.houseInfo} onChange={this.handleChangeHouseInfo} />
+            </label>
+          </form>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Activities:
+              <textarea type="text" value={this.state.activities} onChange={this.handleChangeActivities} />
             </label>
             <div>
-              <input type="submit" value="Submit" />
+              <Button color="primary" size="lg" input type="submit">Submit</Button>
             </div>
-          </form>     
+          </form>
         </div>
 
-      <section id='sitternote-list'>
-        <Link to="/MyHome">
-          <button type="button">
-            Sitter Note List
-          </button>
-        </Link>
-      </section>        
+        <section id='sitternote-list'>
+          <Link to="/MyHome">
+            <Button color="secondary" size="lg" input type="submit">Sitter Note List</Button>
+          </Link>
+        </section>
       </div>
-      
-      
+
+
     );
   }
 }

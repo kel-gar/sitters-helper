@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './SitterNotes.css';
 import { Table } from 'reactstrap';
+import { Badge } from 'reactstrap';
+
 
 class SitterNotes extends Component {
   constructor(props) {
@@ -30,14 +32,14 @@ class SitterNotes extends Component {
     return (
       <section className="sitternotes">
         <div id="sitternotes-list">
-          <h3>Welcome Back {this.props.activeUser} !</h3>
+          <h2><Badge color="primary">Welcome Back!</Badge></h2>
           <Table>
             <thead>
               <tr>
-                <th>General</th>
-                <th>Contact</th>
-                <th>Medical</th>
-                <th>Other</th>
+                <th>Contacts</th>
+                <th>Medical Info</th>
+                <th>House Info</th>
+                <th>Activities and Food</th>
                 {/* <th>Sitter</th> */}
               </tr>
             </thead>
@@ -47,10 +49,10 @@ class SitterNotes extends Component {
               {this.state.sitternotes
                 .map((sitternote, key) => (
                   <tr key={sitternote.key}>
-                    <td>{sitternote.general}</td>
                     <td>{sitternote.contact}</td>
                     <td>{sitternote.medical}</td>
-                    <td>{sitternote.other}</td>
+                    <td>{sitternote.houseInfo}</td>
+                    <td>{sitternote.activities}</td>
                     {/* <td>{sitternote.sitter}</td> */}
                   </tr>
                 ))}

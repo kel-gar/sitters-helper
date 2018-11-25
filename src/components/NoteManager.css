@@ -5,6 +5,8 @@
 
 #sitternotes-list {
     /* font-family: ; */
+    color: secondary;
+    size: lg;
     text-align: center;
   } 
 

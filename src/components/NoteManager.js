@@ -1,32 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './NoteManager.css';
-import { Badge } from 'reactstrap';
-import { Button } from 'reactstrap';
-
-
+import { Badge, Button, NavItem, NavLink } from 'reactstrap';
+import MyHome from './MyHome';
 
 class NoteManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // activeUser: props.activeUser
       value: '',
       contact: '',
       medical: '',
       houseInfo: '',
-      // activeUser: '',
       activities: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
-
     this.handleChangeContact = this.handleChangeContact.bind(this);
     this.handleChangeMedical = this.handleChangeMedical.bind(this);
     this.handleChangeActivities = this.handleChangeActivities.bind(this);
     this.handleChangeHouseInfo = this.handleChangeHouseInfo.bind(this);
-    // this.handleChangeActiveUser = this.handleChangeActiveUser.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -35,13 +28,9 @@ class NoteManager extends Component {
       contact: this.state.contact,
       medical: this.state.medical,
       houseInfo: this.state.houseInfo,
-      activities: this.state.activities,
-      // user_id: this.props.activeUser
+      activities: this.state.activities
     });
-
-    // console.dir(this.props.activeUser);
   }
-
 
   handleChangeContact(e) {
     this.setState({ contact: e.target.value })
@@ -59,10 +48,6 @@ class NoteManager extends Component {
     this.setState({ activities: e.target.value })
   }
 
-  // handleChangeActiveUser(e) {
-  //   this.setState({ activeUser: this.props.activeUser })
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     this.createSitterNote(this.state.value);
@@ -70,8 +55,7 @@ class NoteManager extends Component {
       contact: '',
       medical: '',
       houseInfo: '',
-      activities: '',
-      // user_id: ''
+      activities: ''
     });
   }
 
@@ -105,19 +89,21 @@ class NoteManager extends Component {
               <textarea type="text" value={this.state.activities} onChange={this.handleChangeActivities} />
             </label>
             <div>
-              <Button color="primary" size="lg" input type="submit">Submit</Button>
+              <Button color="primary" size="lg" input type="submit" value="submit">Submit</Button>
             </div>
           </form>
         </div>
-
-        <section id='sitternote-list'>
-          <Link to="/MyHome">
-            <Button color="secondary" size="lg" input type="submit">Sitter Note List</Button>
-          </Link>
-        </section>
+        <div id='sitternote-list'>
+          {/* // when I click on this link i only see the latest note i added not the whole table */}
+          {/* <Link to="/MyHome/">
+            <Button color="secondary" size="lg" input type="submit" value= "submit">Sitter Note List</Button>
+          </Link> */}
+          {/* THIS IS WORKING ALTHOUGH NOT STYLED RIGHT, JUST NEED TO GET IT WORKING */}
+          <NavItem>
+            <NavLink href="/MyHome/">Sitter Note List</NavLink>
+          </NavItem>
+        </div>
       </div>
-
-
     );
   }
 }

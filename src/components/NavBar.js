@@ -6,11 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  // UncontrolledDropdown,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem 
+  NavLink
 } from 'reactstrap';
 
 export default class Example extends React.Component {
@@ -27,13 +23,6 @@ export default class Example extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-  // handleAuthentication() {
-  //   if (this.props.activeUser) {
-  //     return <NavLink href="/SignOut/">Log In</NavLink>
-  //   } else {
-  //     return <NavLink href="/SignIn/">Login</NavLink>
-  //   }
-  // }
 
   render() {
     return (
@@ -49,9 +38,6 @@ export default class Example extends React.Component {
               <NavItem>
                 <NavLink href="/MyHome/">My Home</NavLink>
               </NavItem>
-              {/* <NavItem>
-                <NavLink >My Account</NavLink>
-              </NavItem> */}
             </Nav>
           </Collapse>
         </Navbar>

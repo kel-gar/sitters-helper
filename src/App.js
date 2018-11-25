@@ -28,8 +28,6 @@ class App extends Component {
   }
 
   setUser(user) {
-    console.log(`activeUser: ${JSON.stringify(user)}`);
-    // this.setState( { activeUser: user.displayName } )
     this.setState({ activeUser: user })
   }
 

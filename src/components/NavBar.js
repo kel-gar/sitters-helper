@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
+  Button,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -9,7 +14,7 @@ import {
   NavLink
 } from 'reactstrap';
 
-export default class Example extends React.Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
 
@@ -24,6 +29,23 @@ export default class Example extends React.Component {
     });
   }
 
+  // signInWithPopup() {
+  //   const provider = new this.props.firebase.auth.GoogleAuthProvider();
+  //   this.props.firebase.auth().signInWithPopup( provider );
+  //   }
+
+  // signOut() {
+  //   this.props.firebase.auth().signOut();
+  //   this.props.setUser({ displayName: "Please Log In" });
+  // }
+
+  // componentDidMount() {
+  //   this.props.firebase.auth().onAuthStateChanged(user => {
+  //     this.props.setUser(user);
+  //   });
+  // }
+
+
   render() {
     return (
       <div>
@@ -32,11 +54,32 @@ export default class Example extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              {/* <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Sign In/Out
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <section>
+                      <Button color="primary" size="lg" onClick={(e) => this.signInWithPopup(e)}>Sign In</Button>
+                    </section>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <section>
+                      <Button color="secondary" size="lg" onClick={(e) => this.signOut(e)}>Sign Out</Button>
+                    </section>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    <p>Current User: {this.props.activeUser}</p>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown> */}
               <NavItem>
-              <NavLink href="/SignIn/">Sign In Page</NavLink>
+                <NavLink href="/User/">Sign In/Out</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/MyHome/">My Home</NavLink>
+                <NavLink href="/Sitternotes/">My Home</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -45,3 +88,5 @@ export default class Example extends React.Component {
     );
   }
 }
+
+export default NavBar;

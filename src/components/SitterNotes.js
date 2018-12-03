@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SitterNotes.css';
 import { Table } from 'reactstrap';
 import { Badge } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class SitterNotes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sitternotes: []
+      sitternotes: [],
+      value: ''
     };
 
     this.sitternotesRef = this.props.firebase.database().ref('sitternotes');
   }
 
   componentDidMount() {
+    this.props.firebase.auth().onAuthStateChanged(user => {
+      this.props.setUser(user);
+    });
     this.sitternotesRef.on('child_added', snapshot => {
       const sitternote = snapshot.val();
       sitternote.key = snapshot.key;
@@ -25,7 +31,7 @@ class SitterNotes extends Component {
     return (
       <section className="sitternotes">
         <div id="sitternotes-list">
-          <h2><Badge color="primary">Welcome Back!</Badge></h2>
+          <h2><Badge color="primary">Welcome Back {this.props.activeUser}!</Badge></h2>
           <Table>
             <thead>
               <tr>
@@ -49,10 +55,13 @@ class SitterNotes extends Component {
                 ))}
             </tbody>
           </Table>
-
         </div>
+        <section id='add-note'>
+          <Link to="/NoteManager">
+            <Button color="secondary" size="lg"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button>
+          </Link>
+        </section>
       </section>
-
     );
   }
 }

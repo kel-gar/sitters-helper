@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing.js';
-import MyHome from './components/MyHome';
-import SignIn from './components/SignIn';
+// import MyHome from './components/MyHome';
+import User from './components/User';
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
 import SitterNotes from './components/SitterNotes';
@@ -23,12 +23,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: null
+      activeUser: "Please Log In"
     };
   }
 
   setUser(user) {
-    this.setState({ activeUser: user })
+    this.setState({ activeUser: user.displayName })
   }
 
   render() {
@@ -38,30 +38,43 @@ class App extends Component {
         <div>
           <main>
             <Route exact path="/" component={Landing} />
-            <Route path="/MyHome" component={MyHome} />
             <Route
-              path="/SignIn"
+              path="/User"
               render={(routeProps) => (
-                <SignIn {...routeProps}
+                <User {...routeProps}
                   firebase={firebase}
                   setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser} />
               )}
             />
+            {/* <Route
+              path="/NavBar"
+              render={(routeProps) => (
+                <NavBar {...routeProps}
+                  firebase={firebase}
+                  setUser={(user) => this.setUser(user)}
+                  activeUser={this.state.activeUser} 
+                  />
+              )}
+            /> */}
             <Route
               path="/NoteManager"
               render={(routeProps) => (
-                <NoteManager
+                <NoteManager {...routeProps}
                   firebase={firebase}
-                  activeUser={this.state.activeUser} />
+                  setUser={(user) => this.setUser(user)}
+                  activeUser={this.state.activeUser}
+                />
               )}
             />
             <Route
               path="/SitterNotes"
               render={(routeProps) => (
                 <SitterNotes {...routeProps}
-                  firebase={firebase} 
-                  activeUser={this.state.activeUser}/>
+                  firebase={firebase}
+                  setUser={(user) => this.setUser(user)}
+                  activeUser={this.state.activeUser}
+                />
               )}
             />
           </main>

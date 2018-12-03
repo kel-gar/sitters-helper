@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './NoteManager.css';
-import { Badge, Button, NavItem, NavLink } from 'reactstrap';
-import MyHome from './MyHome';
+import { Badge, Button, NavLink } from 'reactstrap';
 
 class NoteManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      sitternotes: [],
       value: '',
       contact: '',
       medical: '',
@@ -23,12 +22,24 @@ class NoteManager extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.firebase.auth().onAuthStateChanged(user => {
+      this.props.setUser(user);
+    });
+    this.sitternotesRef.on('child_added', snapshot => {
+      const sitternote = snapshot.val();
+      sitternote.key = snapshot.key;
+      this.setState({ sitternotes: this.state.sitternotes.concat(sitternote) });
+    });
+  }
+
   createSitterNote(sitternote) {
     this.sitternotesRef.push({
       contact: this.state.contact,
       medical: this.state.medical,
       houseInfo: this.state.houseInfo,
-      activities: this.state.activities
+      activities: this.state.activities,
+      username: this.props.activeUser
     });
   }
 
@@ -64,7 +75,7 @@ class NoteManager extends Component {
 
       <div className='notemanager'>
         <div id="sitternotes-submit">
-          <h2><Badge color="light">Create Sitter Note:</Badge></h2>
+          <h2><Badge color="light">Create Sitter Note for {this.props.activeUser}</Badge></h2>
           <form onSubmit={this.handleSubmit}>
             <label>
               Contact:
@@ -93,16 +104,7 @@ class NoteManager extends Component {
             </div>
           </form>
         </div>
-        <div id='sitternote-list'>
-          {/* // when I click on this link i only see the latest note i added not the whole table */}
-          {/* <Link to="/MyHome/">
-            <Button color="secondary" size="lg" input type="submit" value= "submit">Sitter Note List</Button>
-          </Link> */}
-          {/* THIS IS WORKING ALTHOUGH NOT STYLED RIGHT, JUST NEED TO GET IT WORKING */}
-          <NavItem>
-            <NavLink href="/MyHome/">Sitter Note List</NavLink>
-          </NavItem>
-        </div>
+            <NavLink href="/SitterNotes/"><Button color="secondary" size="lg">Sitter Note List</Button></NavLink>
       </div>
     );
   }

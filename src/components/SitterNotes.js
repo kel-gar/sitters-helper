@@ -17,9 +17,6 @@ class SitterNotes extends Component {
   }
 
   componentDidMount() {
-    this.props.firebase.auth().onAuthStateChanged(user => {
-      this.props.setUser(user);
-    });
     this.sitternotesRef.on('child_added', snapshot => {
       const sitternote = snapshot.val();
       sitternote.key = snapshot.key;
@@ -28,10 +25,12 @@ class SitterNotes extends Component {
   }
 
   render() {
+    const {activeUser} = this.props;
+    
     return (
       <section className="sitternotes">
         <div id="sitternotes-list">
-          <h2><Badge color="primary">Welcome Back {this.props.activeUser}!</Badge></h2>
+          <h2><Badge color="primary">Welcome Back {activeUser.displayName}!</Badge></h2>
           <Table>
             <thead>
               <tr>

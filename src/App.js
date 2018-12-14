@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing.js';
-// import MyHome from './components/MyHome';
 import User from './components/User';
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
@@ -23,18 +22,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: "Please Log In"
+      activeUser: {},
+      isNavbarHidden: false
     };
   }
 
   setUser(user) {
-    this.setState({ activeUser: user.displayName })
+    this.setState({ activeUser: user })
   }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setUser(user);
+    });
+  }
+
 
   render() {
     return (
       <div className="App">
-        <NavBar activeUser={this.state.activeUser} />
+        {/* <NavBar activeUser={this.state.activeUser} /> */}
+        { (this.state.isNavBarHidden) ? null : <NavBar /> }
         <div>
           <main>
             <Route exact path="/" component={Landing} />
@@ -43,7 +51,7 @@ class App extends Component {
               render={(routeProps) => (
                 <User {...routeProps}
                   firebase={firebase}
-                  setUser={(user) => this.setUser(user)}
+                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser} />
               )}
             />
@@ -62,7 +70,7 @@ class App extends Component {
               render={(routeProps) => (
                 <NoteManager {...routeProps}
                   firebase={firebase}
-                  setUser={(user) => this.setUser(user)}
+                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser}
                 />
               )}
@@ -72,7 +80,7 @@ class App extends Component {
               render={(routeProps) => (
                 <SitterNotes {...routeProps}
                   firebase={firebase}
-                  setUser={(user) => this.setUser(user)}
+                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser}
                 />
               )}

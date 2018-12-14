@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import './User.css';
+import NavBar from './NavBar';
 
 class User extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNavbarHidden: true
+    };
+  }
 
   // signInWithPopup() {
   //   const provider = new this.props.firebase.auth.GoogleAuthProvider();
@@ -23,14 +30,17 @@ class User extends Component {
     this.props.setUser({ displayName: "Please Log In" });
   }
 
-  componentDidMount() {
-    this.props.firebase.auth().onAuthStateChanged(user => {
-      this.props.setUser(user);
-    });
-  }
+  // componentDidMount() {
+  //   this.props.firebase.auth().onAuthStateChanged(user => {
+  //     this.props.setUser(user);
+  //   });
+  // }
 
   render() {
+    const {activeUser} = this.props;
+  
     return (
+      
       <div className="User">
         <div>
           <section>
@@ -39,7 +49,7 @@ class User extends Component {
           <section>
             <Button color="secondary" size="lg" onClick={(e) => this.signOut(e)}>Sign Out</Button>
           </section>
-          <p>Current User: {this.props.activeUser}</p>
+          <p>Current User: {activeUser.displayName}</p>
         </div>
       </div>
     );

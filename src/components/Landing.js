@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Landing.css';
-import { Button, Card, CardImg, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
-
+import { Card, CardTitle, CardText, CardDeck, CardBody } from 'reactstrap';
 
 class Landing extends Component {
 
@@ -16,17 +15,13 @@ class Landing extends Component {
               <CardBody>
                 <CardTitle>SHARE <i class="fab fa-slideshare"></i></CardTitle>
                 <CardText>With your sitters and family members</CardText>
-                {/* <CardText>House, Emergency Contacts, Medical, FUN notes!</CardText> */}
-                {/* <Button>Button</Button> */}
               </CardBody>
             </Card>
             <Card>
-              <img top width="100%" src={process.env.PUBLIC_URL + '/stickys.jpg'} alt="picture of many sticky notes" />
+              <img top width="100%" src={process.env.PUBLIC_URL + '/stickys.jpg'} alt="sticky notes" />
               <CardBody>
                 <CardTitle>NO MORE STICKIES <i class="far fa-sticky-note"></i></CardTitle>
                 <CardText>Stop writing notes for every sitter, everytime</CardText>
-                {/* <CardText>Don't worry if you forgot anything, it's all online :)</CardText> */}
-                {/* <Button>Button</Button> */}
               </CardBody>
             </Card>
             <Card>
@@ -34,14 +29,11 @@ class Landing extends Component {
               <CardBody>
                 <CardTitle>SAVE TIME <i class="far fa-clock"></i></CardTitle>
                 <CardText>Add or Edit sitter notes, anytime</CardText>
-                {/* <CardText>All from your desktop or mobile device</CardText> */}
-                {/* <Button>Button</Button> */}
               </CardBody>
             </Card>
           </CardDeck>
         </p>
       </section>
-
     );
   }
 }

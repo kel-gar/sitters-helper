@@ -23,9 +23,9 @@ class NoteManager extends Component {
   }
 
   componentDidMount() {
-    this.props.firebase.auth().onAuthStateChanged(user => {
-      this.props.setUser(user);
-    });
+    // this.props.firebase.auth().onAuthStateChanged(user => {
+    //   this.props.setUser(user);
+    // });
     this.sitternotesRef.on('child_added', snapshot => {
       const sitternote = snapshot.val();
       sitternote.key = snapshot.key;
@@ -71,11 +71,12 @@ class NoteManager extends Component {
   }
 
   render() {
-    return (
-
+    const {activeUser} = this.props;
+    
+    return (  
       <div className='notemanager'>
         <div id="sitternotes-submit">
-          <h2><Badge color="light">Create Sitter Note for {this.props.activeUser}</Badge></h2>
+          <h2><Badge color="light">Create Sitter Note for {activeUser.displayName}</Badge></h2>
           <form onSubmit={this.handleSubmit}>
             <label>
               Contact:

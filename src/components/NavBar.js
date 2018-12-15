@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import {
-  // Button,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem,
-  // UncontrolledDropdown,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -27,23 +22,6 @@ class NavBar extends Component {
       isOpen: !this.state.isOpen
     });
   }
-
-  // signInWithPopup() {
-  //   const provider = new this.props.firebase.auth.GoogleAuthProvider();
-  //   this.props.firebase.auth().signInWithPopup( provider );
-  //   }
-
-  // signOut() {
-  //   this.props.firebase.auth().signOut();
-  //   this.props.setUser({ displayName: "Please Log In" });
-  // }
-
-  // componentDidMount() {
-  //   this.props.firebase.auth().onAuthStateChanged(user => {
-  //     this.props.setUser(user);
-  //   });
-  // }
-
 
   render() {
     return (

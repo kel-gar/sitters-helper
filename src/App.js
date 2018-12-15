@@ -22,8 +22,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: {},
-      isNavbarHidden: false
+      activeUser: {}
     };
   }
 
@@ -41,8 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <NavBar activeUser={this.state.activeUser} /> */}
-        { (this.state.isNavBarHidden) ? null : <NavBar /> }
+        <NavBar activeUser={this.state.activeUser} />
         <div>
           <main>
             <Route exact path="/" component={Landing} />
@@ -51,26 +49,14 @@ class App extends Component {
               render={(routeProps) => (
                 <User {...routeProps}
                   firebase={firebase}
-                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser} />
               )}
             />
-            {/* <Route
-              path="/NavBar"
-              render={(routeProps) => (
-                <NavBar {...routeProps}
-                  firebase={firebase}
-                  setUser={(user) => this.setUser(user)}
-                  activeUser={this.state.activeUser} 
-                  />
-              )}
-            /> */}
             <Route
               path="/NoteManager"
               render={(routeProps) => (
                 <NoteManager {...routeProps}
                   firebase={firebase}
-                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser}
                 />
               )}
@@ -80,7 +66,6 @@ class App extends Component {
               render={(routeProps) => (
                 <SitterNotes {...routeProps}
                   firebase={firebase}
-                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser}
                 />
               )}

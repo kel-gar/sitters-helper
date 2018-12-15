@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import './User.css';
-import NavBar from './NavBar';
 
 class User extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isNavbarHidden: true
-    };
-  }
-
-  // signInWithPopup() {
-  //   const provider = new this.props.firebase.auth.GoogleAuthProvider();
-  //   this.props.firebase.auth().signInWithPopup(provider).then((result) => {
-  //     this.props.setUser(result.user);
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   });
-  // }
 
   signInWithPopup() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
@@ -30,17 +14,10 @@ class User extends Component {
     this.props.setUser({ displayName: "Please Log In" });
   }
 
-  // componentDidMount() {
-  //   this.props.firebase.auth().onAuthStateChanged(user => {
-  //     this.props.setUser(user);
-  //   });
-  // }
-
   render() {
     const {activeUser} = this.props;
   
     return (
-      
       <div className="User">
         <div>
           <section>

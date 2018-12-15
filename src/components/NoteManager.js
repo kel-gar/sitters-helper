@@ -72,8 +72,8 @@ class NoteManager extends Component {
 
   render() {
     const {activeUser} = this.props;
-    
-    return (  
+
+    return (
       <div className='notemanager'>
         <div id="sitternotes-submit">
           <h2><Badge color="light">Create Sitter Note for {activeUser.displayName}</Badge></h2>

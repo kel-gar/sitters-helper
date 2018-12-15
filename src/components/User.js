@@ -16,7 +16,7 @@ class User extends Component {
 
   render() {
     const {activeUser} = this.props;
-  
+
     return (
       <div className="User">
         <div>

@@ -1,14 +1,18 @@
 .hero-title {
     font-family: sans-serif;
-    margin: 1.5em;
+    margin: 1.75em;
     /* margin-bottom: 1.5em; */
 }
 
 p {
-  margin: 20px;
-  padding: 30px;
+  margin: 50px;
+  border: 30px;
+  padding: 20px;
   border-radius: 10%;
-  /* box-shadow: 2px 2px 7px 2px #000000; */
+}
+
+.cards {
+  padding: 20px;
 }
 
 img {
@@ -21,4 +25,4 @@ img {
   padding: 20px;
   background-color: white;
   color: black;
-}  
+}

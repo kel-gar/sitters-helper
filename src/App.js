@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   setUser(user) {
-    this.setState({ activeUser: user })
+    this.setState({ activeUser: user });
   }
 
   componentDidMount() {
@@ -35,7 +35,6 @@ class App extends Component {
       this.setUser(user);
     });
   }
-
 
   render() {
     return (
@@ -49,6 +48,7 @@ class App extends Component {
               render={(routeProps) => (
                 <User {...routeProps}
                   firebase={firebase}
+                  // setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser} />
               )}
             />

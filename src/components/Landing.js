@@ -9,6 +9,7 @@ class Landing extends Component {
       <section className="landing">
         <h1 className="hero-title">All of your important household Info in 1 place</h1>
         <p>
+          <div className= "cards">
           <CardDeck>
             <Card>
               <img top width="100%" src={process.env.PUBLIC_URL + '/family.jpg'} alt="family at the lake" />
@@ -32,6 +33,7 @@ class Landing extends Component {
               </CardBody>
             </Card>
           </CardDeck>
+          </div>
         </p>
       </section>
     );

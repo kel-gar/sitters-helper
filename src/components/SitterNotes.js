@@ -4,6 +4,8 @@ import './SitterNotes.css';
 import { Table } from 'reactstrap';
 import { Badge } from 'reactstrap';
 import { Button } from 'reactstrap';
+import NoteManager from './NoteManager';
+
 
 class SitterNotes extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class SitterNotes extends Component {
 
   render() {
     const {activeUser} = this.props;
-    
+
     return (
       <section className="sitternotes">
         <div id="sitternotes-list">
@@ -40,10 +42,9 @@ class SitterNotes extends Component {
                 <th>Activities and Food</th>
               </tr>
             </thead>
-
             <tbody>
-              {/* {this.state.sitternotes.filter( (msg) => sitternote.sitter === this.props.activeUser.displayName) */}
               {this.state.sitternotes
+                .filter(sitternote => sitternote.username === activeUser.uid)
                 .map((sitternote, key) => (
                   <tr key={sitternote.key}>
                     <td>{sitternote.contact}</td>
@@ -54,12 +55,17 @@ class SitterNotes extends Component {
                 ))}
             </tbody>
           </Table>
+          
         </div>
         <section id='add-note'>
           <Link to="/NoteManager">
             <Button color="secondary" size="lg"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button>
+            {/* <Button color="secondary" size="lg"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button>
+            <Button color="secondary" size="lg"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button>
+            <Button color="secondary" size="lg"><i className="fas fa-plus fa-1x">ADD NOTE</i></Button> */}
           </Link>
         </section>
+        {/* <NoteManager /> */}
       </section>
     );
   }

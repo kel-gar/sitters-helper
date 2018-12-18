@@ -3,21 +3,24 @@ import { Button } from 'reactstrap';
 import './User.css';
 
 class User extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     user: null
+  //   };
+  // }
 
   signInWithPopup() {
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
     this.props.firebase.auth().signInWithPopup(provider).then((result) => {
       this.props.setUser(result.user);
+      console.log(result.user);
     }).catch((err) => {
       console.log(err);
     });
   }
+
+
 
   // signInWithPopup() {
   //   const provider = new this.props.firebase.auth.GoogleAuthProvider();
@@ -34,7 +37,7 @@ class User extends Component {
     // const {activeUser} = this.props;
 
     this.props.firebase.auth().signOut();
-    this.props.setUser({ user: "Please Log In" });
+    this.props.setUser({});
   }
 
   // componentDidMount() {
@@ -42,6 +45,10 @@ class User extends Component {
   //     this.props.setUser(user);
   //   });
   // }
+
+
+
+
 
   render() {
     const {activeUser} = this.props;
@@ -55,7 +62,7 @@ class User extends Component {
           <section>
             <Button color="secondary" size="lg" onClick={(e) => this.signOut(e)}>Sign Out</Button>
           </section>
-          <p>Current User: {activeUser.displayName}</p>
+          <p>Current User: {activeUser && activeUser.displayName}</p>
         </div>
       </div>
     );

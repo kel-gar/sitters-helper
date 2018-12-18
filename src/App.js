@@ -3,6 +3,9 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing.js';
 import User from './components/User';
+// import SignUp from './components/SignUp';
+// import ResetPassword from './components/ResetPassword';
+// import Account from './components/Account'
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
 import SitterNotes from './components/SitterNotes';
@@ -22,7 +25,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: {}
+      activeUser: {},
+      isNavbarHidden: false
     };
   }
 
@@ -40,6 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar activeUser={this.state.activeUser} />
+        
         <div>
           <main>
             <Route exact path="/" component={Landing} />
@@ -48,7 +53,7 @@ class App extends Component {
               render={(routeProps) => (
                 <User {...routeProps}
                   firebase={firebase}
-                  // setUser={(user) => this.setUser(user)}
+                  setUser={(user) => this.setUser(user)}
                   activeUser={this.state.activeUser} />
               )}
             />
@@ -70,6 +75,8 @@ class App extends Component {
                 />
               )}
             />
+          
+
           </main>
         </div>
       </div>

@@ -46,10 +46,6 @@ class User extends Component {
   //   });
   // }
 
-
-
-
-
   render() {
     const {activeUser} = this.props;
 

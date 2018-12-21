@@ -42,7 +42,7 @@ class SitterNotes extends Component {
                 <th>Activities and Food</th>
               </tr>
             </thead>
-            <tbody>
+            {/* <tbody>
               {this.state.sitternotes
                 .filter(sitternote => sitternote.username === activeUser.uid)
                 .map((sitternote, key) => (
@@ -53,7 +53,19 @@ class SitterNotes extends Component {
                     <td>{sitternote.activities}</td>
                   </tr>
                 ))}
-            </tbody>
+            </tbody> */}
+            <React.Fragment>
+              {this.state.sitternotes
+                .filter(sitternote => sitternote.username === activeUser.uid)
+                .map((sitternote, key) => (
+                  <tr key={sitternote.key}>
+                    <td>{sitternote.contact}</td>
+                    <td>{sitternote.medical}</td>
+                    <td>{sitternote.houseInfo}</td>
+                    <td>{sitternote.activities}</td>
+                  </tr>
+                ))}
+            </React.Fragment>           
           </Table>
           
         </div>

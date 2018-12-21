@@ -45,6 +45,7 @@ class App extends Component {
       <div className="App">
         <NavBar activeUser={this.state.activeUser} />
         
+        
         <div>
           <main>
             <Route exact path="/" component={Landing} />

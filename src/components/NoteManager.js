@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NoteManager.css';
 import { Badge, Button, NavLink } from 'reactstrap';
+import SitterNotes from './SitterNotes';
 
 class NoteManager extends Component {
   constructor(props) {

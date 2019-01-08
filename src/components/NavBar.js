@@ -23,11 +23,19 @@ class NavBar extends Component {
     });
   }
 
+  signOut() {
+    // const {setUser} = this.props;
+    // const {activeUser} = this.props;
+
+    this.props.firebase.auth().signOut();
+    this.props.setUser({});
+  }
+
   render() {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Welcome to Sitter's Helper <i class="fas fa-child"></i></NavbarBrand>
+          <NavbarBrand href="/">Sitter's Helper <i class="fas fa-child"></i></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={!this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

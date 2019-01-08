@@ -1,3 +1,12 @@
 .User {
-    padding: 20px;
+    padding: 100px;
+}
+
+h1 {
+    border: 100px;
+}
+
+
+#button {
+    padding: 100px;
 }

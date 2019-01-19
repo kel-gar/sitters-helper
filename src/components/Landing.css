@@ -4,6 +4,12 @@
     /* margin-bottom: 1.5em; */
 }
 
+.Landing {
+  padding: 20px;
+  background-color: white;
+  color: black;
+}
+
 p {
   margin: 20px;
   border: 30px;
@@ -12,7 +18,7 @@ p {
 }
 
 .cards {
-  padding: 20px;
+  padding: 20px;  
 }
 
 img {
@@ -21,8 +27,6 @@ img {
     object-fit: cover;
   }
 
-.Landing {
-  padding: 20px;
-  background-color: white;
-  color: black;
-}
+
+
+

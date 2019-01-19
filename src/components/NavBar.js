@@ -23,13 +23,13 @@ class NavBar extends Component {
     });
   }
 
-  signOut() {
-    // const {setUser} = this.props;
-    // const {activeUser} = this.props;
+  // signOut() {
+  //   // const {setUser} = this.pr ops;
+  //   // const {activeUser} = this.props;
 
-    this.props.firebase.auth().signOut();
-    this.props.setUser({});
-  }
+  //   this.props.firebase.auth().signOut();
+  //   this.props.setUser({});
+  // }
 
   render() {
     return (
@@ -41,6 +41,7 @@ class NavBar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/User/">Sign In</NavLink>
+                
               </NavItem>
               <NavItem>
                 <NavLink href="/Sitternotes/">My Home</NavLink>

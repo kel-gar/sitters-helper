@@ -3,9 +3,6 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing.js';
 import User from './components/User';
-// import SignUp from './components/SignUp';
-// import ResetPassword from './components/ResetPassword';
-// import Account from './components/Account'
 import NoteManager from './components/NoteManager';
 import NavBar from './components/NavBar';
 import SitterNotes from './components/SitterNotes';
@@ -44,8 +41,6 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar activeUser={this.state.activeUser} />
-        
-        
         <div>
           <main>
             <Route exact path="/" component={Landing} />

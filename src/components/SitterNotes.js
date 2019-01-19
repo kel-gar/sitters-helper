@@ -4,7 +4,7 @@ import './SitterNotes.css';
 import { Table } from 'reactstrap';
 import { Badge } from 'reactstrap';
 import { Button } from 'reactstrap';
-import NoteManager from './NoteManager';
+// import NoteManager from './NoteManager';
 
 
 class SitterNotes extends Component {
@@ -32,7 +32,7 @@ class SitterNotes extends Component {
     return (
       <section className="sitternotes">
         <div id="sitternotes-list">
-          <h2><Badge color="primary">Welcome Back {activeUser.displayName}!</Badge></h2>
+          <h2><Badge color="primary">Welcome Back {activeUser && activeUser.displayName}!</Badge></h2>
           <Table>
             <thead>
               <tr>

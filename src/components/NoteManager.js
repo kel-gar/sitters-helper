@@ -135,7 +135,7 @@ class NoteManager extends Component {
   }
 
   render() {
-    const {activeUser} = this.props;
+    const { activeUser } = this.props;
 
     return (
       <div className='notemanager'>
@@ -173,7 +173,7 @@ class NoteManager extends Component {
             </div> */}
           </form>
         </div>
-            <NavLink href="/SitterNotes/"><Button color="secondary" size="lg">Sitter Note List</Button></NavLink>
+        <NavLink href="/SitterNotes/"><Button color="secondary" size="lg">Sitter Note List</Button></NavLink>
       </div>
     );
   }

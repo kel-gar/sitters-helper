@@ -144,28 +144,47 @@ class NoteManager extends Component {
           <form onSubmit={this.handleSubmitContact}>
             <label>
               Contact:
-              <textarea type="text" value={this.state.contact} onChange={this.handleChangeContact} />
+              <textarea type="text"
+                value={this.state.contact}
+                onChange={this.handleChangeContact}
+                placeholder="ex: Dad 303-333-3333"
+              />
               <Button color="primary" size="sm" input type="submit" value="submit">Submit</Button>
             </label>
           </form>
           <form onSubmit={this.handleSubmitMedical}>
             <label>
               Medical:
-              <textarea type="text" value={this.state.medical} onChange={this.handleChangeMedical} />
+              <textarea
+                type="text"
+                value={this.state.medical}
+                onChange={this.handleChangeMedical}
+                placeholder="ex: Nearest Emergency Room"
+              />
               <Button color="primary" size="sm" input type="submit" value="submit">Submit</Button>
             </label>
           </form>
           <form onSubmit={this.handleSubmitHouse}>
             <label>
               House Info:
-              <textarea type="text" value={this.state.houseInfo} onChange={this.handleChangeHouseInfo} />
+              <textarea
+                type="text"
+                value={this.state.houseInfo}
+                onChange={this.handleChangeHouseInfo}
+                placeholder="ex: Keep the heat at 70"
+              />
               <Button color="primary" size="sm" input type="submit" value="submit">Submit</Button>
             </label>
           </form>
           <form onSubmit={this.handleSubmitActivities}>
             <label>
               Activities:
-              <textarea type="text" value={this.state.activities} onChange={this.handleChangeActivities} />
+              <textarea
+                type="text"
+                value={this.state.activities}
+                onChange={this.handleChangeActivities}
+                placeholder="ex: Nearest Park is on 19th and Floral"
+              />
               <Button color="primary" size="sm" input type="submit" value="submit">Submit</Button>
             </label>
             {/* <div>

@@ -27,25 +27,12 @@ class NoteManager extends Component {
   }
 
   componentDidMount() {
-    // this.props.firebase.auth().onAuthStateChanged(user => {
-    //   this.props.setUser(user);
-    // });
     this.sitternotesRef.on('child_added', snapshot => {
       const sitternote = snapshot.val();
       sitternote.key = snapshot.key;
       this.setState({ sitternotes: this.state.sitternotes.concat(sitternote) });
     });
   }
-
-  // createSitterNote(sitternote) {
-  //   this.sitternotesRef.push({
-  //     contact: this.state.contact,
-  //     medical: this.state.medical,
-  //     houseInfo: this.state.houseInfo,
-  //     activities: this.state.activities,
-  //     username: this.props.activeUser.uid
-  //   });
-  // }
 
   createContactNote(sitternote) {
     this.sitternotesRef.push({
@@ -90,17 +77,6 @@ class NoteManager extends Component {
   handleChangeActivities(e) {
     this.setState({ activities: e.target.value })
   }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.createSitterNote(this.state.value);
-  //   this.setState({
-  //     contact: '',
-  //     medical: '',
-  //     houseInfo: '',
-  //     activities: ''
-  //   });
-  // }
 
   handleSubmitContact(e) {
     e.preventDefault();
@@ -187,9 +163,6 @@ class NoteManager extends Component {
               />
               <Button color="primary" size="sm" input type="submit" value="submit">Submit</Button>
             </label>
-            {/* <div>
-              <Button color="primary" size="lg" input type="submit" value="submit">Submit</Button>
-            </div> */}
           </form>
         </div>
         <NavLink href="/SitterNotes/"><Button color="secondary" size="lg">Sitter Note List</Button></NavLink>
